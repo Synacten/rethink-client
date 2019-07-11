@@ -86,13 +86,14 @@
         .different{
             max-width: 320px;
             width: 100%;
-            background-color: rgb(152, 170, 247);
+            background-color: rgba(152, 169, 247, 0.712);
             @media (max-width: $media1340) {
                 max-width: 270px;
             }
             @media (max-width: $media767) {
                 max-width: unset;
             }
+            
         }
     }
 }
