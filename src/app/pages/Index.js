@@ -1,7 +1,7 @@
 import React from 'react';
 import Crumbs from '../components/Crumbs';
 import Article from '../components/Article';
-import Diff from '../components/Diff';
+import { Diff } from '../components/Diff';
 
 export default function Index() {
   const fakeArr = [

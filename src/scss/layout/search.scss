@@ -1,0 +1,81 @@
+.searchWrap{
+    display: flex;
+    position: relative;
+    label{
+        position: relative;
+        input[name='searchparams']{
+            width: 100%;
+            min-width: 320px;
+            border: none;
+            border: 1px solid $greyColor;
+            height: 30px;
+            font-family: $ub;
+            padding: 0 25px 0 8px;
+            border-radius: 5px;
+            @media (max-width: $media767){
+
+            }
+        }
+        input[name='searchinput']{
+            background-color: rgb(201, 96, 96);
+            border: none;
+            width: 25px;
+            height: 25px;
+        }
+    }
+    .fa-search{
+        position: absolute;
+        top: 7px;
+        right: 5px;
+        z-index: 1;
+    }
+}
+
+.subscribe{
+    .title{
+        font-family: $ub;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h2{
+            font-size: 1.5em;
+            font-weight: bold;
+            height: 70px;
+        }
+        span{
+            display: block;
+            width: 50%;
+            margin-top: -20px;
+        }
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        label{
+            input{
+                width: 100%;
+                border: none;
+                height: 30px;
+            }
+            input[name='subemail']{
+                border: 1px solid $greyColor;
+                border-radius: 5px;
+                margin-bottom: 10px;
+                font-family: $ub;
+                padding-left: 5px;
+            }
+            input[name='subscribe']{
+                background-color: $mainColor;
+                border-radius: 5px;
+                font-family: $ub;
+                font-weight: bold;
+                transition: all .4s;
+                &:hover{
+                    cursor: pointer;
+                    color: white;
+                }
+            }
+        }
+    }
+}
