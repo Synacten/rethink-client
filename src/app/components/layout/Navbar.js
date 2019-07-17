@@ -18,7 +18,7 @@ const Navbar = ({ dataInit, getInitial: _getInitial }) => {
           <div className="links">
             <ul>
               {Object.keys(dataInit).length ? dataInit.map(item => (
-                <li key={item.id}><Link to="/">{item.cathegory}</Link></li>
+                <li key={item.id}><Link to={`/${item.cathegory}`}>{item.cathegory}</Link></li>
               )) : null}
             </ul>
           </div>
@@ -44,5 +44,6 @@ Navbar.propTypes = {
 const mapDispatchToProps = state => ({
   dataInit: state.monitor.dataInit,
 });
+
 
 export default connect(mapDispatchToProps, { getInitial })(Navbar);
