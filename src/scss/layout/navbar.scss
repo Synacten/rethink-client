@@ -37,6 +37,7 @@
                         display: flex;
                         a{
                             font-family: $ub;
+                            text-transform: capitalize;
                             &::after{
                                 content: '';
                                 height: 2px;
