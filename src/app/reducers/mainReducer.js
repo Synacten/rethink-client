@@ -1,9 +1,10 @@
-import { GETINITDATA } from '../actions/types';
+import {
+  GETINITDATA,
+} from '../actions/types';
 
 const initialState = {
   dataInit: [],
 };
-
 
 export default function (state = initialState, action) {
   switch (action.type) {
@@ -12,6 +13,7 @@ export default function (state = initialState, action) {
         ...state,
         dataInit: action.payload,
       };
+
     default:
       return {
         ...state,

@@ -1,4 +1,6 @@
-import { GETINITDATA } from './types';
+import {
+  GETINITDATA,
+} from './types';
 
 export const getInitial = () => async (dispatch) => {
   const data = await fetch('http://localhost:2700/cathegory');
