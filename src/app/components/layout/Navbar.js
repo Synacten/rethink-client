@@ -7,7 +7,7 @@ import { getInitial } from '../../actions/mainActions';
 const Navbar = ({ dataInit, getInitial: _getInitial }) => {
   useEffect(() => {
     window.addEventListener('load', () => { _getInitial(); });
-  });
+  }, []);
   return (
     <div className="navBar">
       <div className="flexNav">
@@ -18,7 +18,7 @@ const Navbar = ({ dataInit, getInitial: _getInitial }) => {
           <div className="links">
             <ul>
               {Object.keys(dataInit).length ? dataInit.map(item => (
-                <li key={item.id}><Link to={`/${item.cathegory}`}>{item.cathegory}</Link></li>
+                <li key={item.id}><Link to={`/${item.category_name}`}>{item.category_name}</Link></li>
               )) : null}
             </ul>
           </div>
