@@ -29,6 +29,34 @@
         right: 5px;
         z-index: 1;
     }
+    .searchResults{
+        position: absolute;
+        width: 100%;
+        top: 30px;
+        .tag{
+            display: flex;
+            border-radius: 5px;
+            background-color: rgb(241, 241, 241);
+            cursor: pointer;
+            .imgBlock{
+                width: 100px;
+                background-color: rgb(161, 225, 245);
+                img{
+                }
+            }
+            .content{
+                font-family: $ub;
+                padding: 3px;
+                p{
+                    padding-bottom: 3px;
+                    font-weight: bold;
+                }
+                span{
+                    
+                }
+            }
+        }
+    }
 }
 
 .subscribe{

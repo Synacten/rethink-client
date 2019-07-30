@@ -17,7 +17,7 @@ const Article = ({ articles }) => {
               <h2>{item.title}</h2>
               <div className="misk">
                 <time>{item.updated_at.split('T')[0]}</time>
-                <p>1 comment</p>
+                <p>0 comment</p>
                 <span>{item.category}</span>
               </div>
               <h5>{item.description}</h5>
