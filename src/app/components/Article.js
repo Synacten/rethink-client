@@ -16,7 +16,7 @@ const Article = ({ articles }) => {
             <div className="descript">
               <h2>{item.title}</h2>
               <div className="misk">
-                <time>10.02.19</time>
+                <time>{item.updated_at.split('T')[0]}</time>
                 <p>1 comment</p>
                 <span>{item.category}</span>
               </div>
