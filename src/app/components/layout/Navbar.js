@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getInitial } from '../../actions/mainActions';
+import { getInitial, getArticles } from '../../actions/mainActions';
 
-const Navbar = ({ dataInit, getInitial: _getInitial }) => {
+const Navbar = ({ dataInit, getInitial: _getInitial, getArticles: _getArticles }) => {
   useEffect(() => {
-    window.addEventListener('load', () => { _getInitial(); });
-  }, []);
+    window.addEventListener('load', () => { _getInitial(); _getArticles(); }, []);
+  });
   return (
     <div className="navBar">
       <div className="flexNav">
@@ -38,6 +38,7 @@ const Navbar = ({ dataInit, getInitial: _getInitial }) => {
 Navbar.propTypes = {
   dataInit: PropTypes.arrayOf(PropTypes.object, PropTypes.string).isRequired,
   getInitial: PropTypes.func.isRequired,
+  getArticles: PropTypes.func.isRequired,
 };
 
 
@@ -46,4 +47,4 @@ const mapDispatchToProps = state => ({
 });
 
 
-export default connect(mapDispatchToProps, { getInitial })(Navbar);
+export default connect(mapDispatchToProps, { getInitial, getArticles })(Navbar);

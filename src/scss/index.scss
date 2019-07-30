@@ -7,7 +7,6 @@
         padding: 0 15px;
     }
     .contentWrap{
-        // background-color: rgb(255, 252, 206);
         display: flex;
         width: 100%;
         @media (max-width: $media767) {
@@ -16,7 +15,6 @@
         .selfArticle{
             max-width: 980px;
             width: 100%;
-            // background-color: rgb(170, 247, 240);
             position: relative;
             font-family: $ub;
             @media (max-width: $media1340) {
@@ -25,63 +23,70 @@
             @media (max-width: $media767) {
                 padding: 0;
             }
-            .image{
-                img{
-                    max-width: 950px;
-                    width: 100%;
+            .articleWrap{
+                padding-right: 20px;
+                @media (max-width: $media1340) {
+                    padding: 0;
                 }
-            }
-            .descript{
-                h2{
-                    font-size: 2em;
-                    margin: 10px 0;
-                    font-weight: bold;
-                    letter-spacing: 1px;
-                }
-                .misk{
-                    display: flex;
-                    margin-bottom: 10px;
-                    time{
-                        width: 140px;
-                    }
-                    p{
-                        width: 150px;
+                .image{
+                    img{
+                        max-width: 950px;
+                        width: 100%;
                     }
                 }
-                h5{
-                    line-height: 20px;
-                }
-                .read{
-                    display: flex;
-                    align-items: center;
-                    height: 50px;
-                    margin-bottom: 30px;
-                    p{
-                        width: 100px;
-                        height: 30px;
+                .descript{
+                    h2{
+                        font-size: 2em;
+                        margin: 10px 0;
+                        font-weight: bold;
+                        letter-spacing: 1px;
+                    }
+                    .misk{
                         display: flex;
-                        justify-content: center;
+                        margin-bottom: 10px;
+                        time{
+                            width: 140px;
+                        }
+                        p{
+                            width: 150px;
+                        }
+                    }
+                    h5{
+                        line-height: 20px;
+                    }
+                    .read{
+                        display: flex;
                         align-items: center;
-                        background-color: $mainColor;
-                        border-radius: 5px;
-                        cursor: pointer;
-                        a{
-                            transition: all .4s;
-                            &:hover{
-                                color: white;
+                        height: 50px;
+                        margin-bottom: 30px;
+                        p{
+                            width: 100px;
+                            height: 30px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background-color: $mainColor;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            a{
+                                transition: all .4s;
+                                &:hover{
+                                    color: white;
+                                }
+                            }
+                        }
+                        ul{
+                            display: flex;
+                            width: 100px;
+                            justify-content: space-evenly;
+                            li{
+                                cursor: pointer;
                             }
                         }
                     }
-                    ul{
-                        display: flex;
-                        width: 100px;
-                        justify-content: space-evenly;
-                        li{
-                            cursor: pointer;
-                        }
-                    }
                 }
             }
+            
         }
         .different{
             max-width: 320px;

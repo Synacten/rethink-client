@@ -1,9 +1,11 @@
 import {
   GETINITDATA,
+  GETARTCILES,
 } from '../actions/types';
 
 const initialState = {
   dataInit: [],
+  articles: [],
 };
 
 export default function (state = initialState, action) {
@@ -12,6 +14,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         dataInit: action.payload,
+      };
+    case GETARTCILES:
+      return {
+        ...state,
+        articles: action.payload,
       };
 
     default:

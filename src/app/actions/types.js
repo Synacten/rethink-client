@@ -1,1 +1,2 @@
 export const GETINITDATA = 'GETINITDATA';
+export const GETARTCILES = 'GETARTICLES';
