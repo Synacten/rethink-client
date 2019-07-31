@@ -1,6 +1,7 @@
 import {
   GETINITDATA,
   GETARTCILES,
+  ISLOADING,
 } from './types';
 
 export const getInitial = () => async (dispatch) => {
@@ -33,4 +34,11 @@ export const getArticles = () => async (dispatch) => {
       payload: [],
     });
   }
+};
+
+
+export const dataLoad = () => async (dispatch) => {
+  dispatch({
+    type: ISLOADING,
+  });
 };
