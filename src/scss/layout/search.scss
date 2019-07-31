@@ -31,28 +31,51 @@
     }
     .searchResults{
         position: absolute;
+        min-width: 320px;
         width: 100%;
         top: 30px;
+        max-height: 400px;
+        overflow-y: auto;
+        overflow-x: hidden;
         .tag{
             display: flex;
             border-radius: 5px;
-            background-color: rgb(241, 241, 241);
-            cursor: pointer;
+            background-color: rgb(255, 255, 251);
+            &:hover{
+                background-color: rgb(241, 241, 241);
+                cursor: pointer;
+            }
+
             .imgBlock{
-                width: 100px;
-                background-color: rgb(161, 225, 245);
+                min-width: 100px;
+                // background-color: rgb(161, 225, 245);
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                padding-top: 5px;
                 img{
+                    max-width: 90px;
+                    width: 100%;
                 }
             }
             .content{
                 font-family: $ub;
-                padding: 3px;
+                padding: 5px;
+                min-height: 70px;
                 p{
                     padding-bottom: 3px;
                     font-weight: bold;
+                    transition: all .3s;
+                    font-size: .9em;
+                    line-height: 18px;
                 }
                 span{
-                    
+                    font-size: .8em;
+                    display: block;
+                    width: 210px;
+                    overflow: hidden;
+                    max-height: 37px;
+                    line-height: 18px;
                 }
             }
         }

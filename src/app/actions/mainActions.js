@@ -21,7 +21,6 @@ export const getInitial = () => async (dispatch) => {
 
 export const getArticles = () => async (dispatch) => {
   const data = await fetch('http://localhost:2700/articles');
-  console.log(data);
   if (data.status === 200) {
     const json = await data.json();
     dispatch({
