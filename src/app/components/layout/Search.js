@@ -7,6 +7,7 @@ const Search = ({ isLoading, dataLoad: _dataLoad }) => {
   const [searchParams, setParams] = useState('');
   const [searchResult, setResults] = useState([]);
   const handleParams = async (e) => {
+    e.persist();
     setParams(e.target.value);
     if (e.target.value !== '') {
       _dataLoad();
@@ -32,7 +33,6 @@ const Search = ({ isLoading, dataLoad: _dataLoad }) => {
     }
     if (e.target.value.length === 0) {
       e.preventDefault();
-      console.log(e.target.value.length);
       setResults([]);
     }
   };
