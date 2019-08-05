@@ -12,8 +12,8 @@
             font-family: $ub;
             padding: 0 25px 0 8px;
             border-radius: 5px;
-            @media (max-width: $media767){
-
+            @media (max-width: $media1340){
+                min-width: 270px;
             }
         }
         input[name='searchinput']{
@@ -37,6 +37,10 @@
         max-height: 400px;
         overflow-y: auto;
         overflow-x: hidden;
+        z-index: 5;
+        @media (max-width: $media1340){
+            min-width: 270px;
+        }
         .tag{
             display: flex;
             border-radius: 5px;
@@ -76,6 +80,9 @@
                     overflow: hidden;
                     max-height: 37px;
                     line-height: 18px;
+                    @media (max-width: $media1340){
+                        min-width: 170px;
+                    }
                 }
             }
         }
@@ -148,6 +155,15 @@
                     color: white;
                 }
             }
+        }
+        .errors{
+            font-family: $ub;
+            font-size: .8em;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: red;
         }
     }
 }

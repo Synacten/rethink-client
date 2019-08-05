@@ -43,7 +43,7 @@ const Search = ({ isLoading, dataLoad: _dataLoad }) => {
   return (
     <div className="searchWrap">
       <label htmlFor="search">
-        <input type="text" name="searchparams" placeholder="search" value={searchParams} onChange={handleParams} onBlur={clearParams} />
+        <input type="text" name="searchparams" placeholder="search" value={searchParams} onChange={handleParams} onClick={handleParams} onBlur={clearParams} />
         <i className="fas fa-search" />
       </label>
       {isLoading ? <div className="spinner" /> : null}

@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 import Index from './pages/Index';
 import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
 import { Notfound } from './pages/Notfound';
 
 const Router = () => (
@@ -16,6 +17,7 @@ const Router = () => (
           <Route path="/" exact component={Index} />
           <Route component={Notfound} />
         </Switch>
+        <Footer />
       </div>
     </BrowserRouter>
   </Provider>
