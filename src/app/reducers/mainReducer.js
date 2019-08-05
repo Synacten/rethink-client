@@ -2,11 +2,13 @@ import {
   GETINITDATA,
   GETARTCILES,
   ISLOADING,
+  GETONEARTICLE,
 } from '../actions/types';
 
 const initialState = {
   dataInit: [],
   articles: [],
+  currentArticle: [],
   isLoading: false,
 };
 
@@ -21,6 +23,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         articles: action.payload,
+      };
+    case GETONEARTICLE:
+      return {
+        ...state,
+        currentArticle: action.payload,
       };
     case ISLOADING:
       return {

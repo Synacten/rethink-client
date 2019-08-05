@@ -3,8 +3,18 @@
     width: 100%;
     margin: 0 auto;
     position: relative;
-    @media (max-width: $media1340) {
-        padding: 0 15px;
+    display: flex;
+    @media (max-width: $media875) {
+        flex-direction: column;
+        align-items: center;
+    }
+    .indexContent{
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - 320px);
+        @media (max-width: $media875) {
+            width: calc(100% - 20px);
+        }
     }
     .contentWrap{
         display: flex;
@@ -91,19 +101,20 @@
             }
             
         }
-        .different{
-            max-width: 320px;
-            width: 100%;
-            @media (max-width: $media1340) {
-                max-width: 270px;
-            }
-            @media (max-width: $media767) {
-                max-width: unset;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            
+        
+    }
+    .different{
+        max-width: 320px;
+        width: 100%;
+        padding-top: 30px;
+        @media (max-width: $media875) {
+            max-width: unset;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: unset;
+            width: calc(100% - 20px);
         }
+        
     }
 }

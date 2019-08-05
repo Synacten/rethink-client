@@ -2,6 +2,7 @@ import {
   GETINITDATA,
   GETARTCILES,
   ISLOADING,
+  GETONEARTICLE,
 } from './types';
 
 export const getInitial = () => async (dispatch) => {
@@ -31,6 +32,23 @@ export const getArticles = () => async (dispatch) => {
   } else {
     dispatch({
       type: GETARTCILES,
+      payload: [],
+    });
+  }
+};
+
+export const getOneArticle = ({ link }) => async (dispatch) => {
+  const data = await fetch(`http://localhost:2700/article/${link}`);
+  if (data.status === 200) {
+    const json = await data.json();
+    console.log(json);
+    dispatch({
+      type: GETONEARTICLE,
+      payload: json,
+    });
+  } else {
+    dispatch({
+      type: GETONEARTICLE,
       payload: [],
     });
   }

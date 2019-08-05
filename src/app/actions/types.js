@@ -1,3 +1,4 @@
 export const GETINITDATA = 'GETINITDATA';
 export const GETARTCILES = 'GETARTICLES';
 export const ISLOADING = 'ISLOADING';
+export const GETONEARTICLE = 'GETONEARTICLE';

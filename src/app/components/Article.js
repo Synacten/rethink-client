@@ -20,7 +20,7 @@ const Article = ({ articles }) => (
             </div>
             <h5>{item.description}</h5>
             <div className="read">
-              <p><Link to="/">Read More</Link></p>
+              <p><Link to={`/${item.link}`}>Read More</Link></p>
               <ul>
                 <li><i className="fab fa-facebook-square" /></li>
                 <li><i className="fab fa-twitter" /></li>
@@ -31,7 +31,6 @@ const Article = ({ articles }) => (
         </div>
       ))
     ) : null}
-
   </div>
 );
 

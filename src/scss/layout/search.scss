@@ -3,6 +3,7 @@
     position: relative;
     label{
         position: relative;
+
         input[name='searchparams']{
             width: 100%;
             min-width: 320px;
@@ -12,8 +13,8 @@
             font-family: $ub;
             padding: 0 25px 0 8px;
             border-radius: 5px;
-            @media (max-width: $media1340){
-                min-width: 270px;
+            @media (max-width: $media875) {
+                min-width: 300px;
             }
         }
         input[name='searchinput']{
@@ -38,8 +39,8 @@
         overflow-y: auto;
         overflow-x: hidden;
         z-index: 5;
-        @media (max-width: $media1340){
-            min-width: 270px;
+        @media (max-width: $media875) {
+            min-width: 300px;
         }
         .tag{
             display: flex;
@@ -80,9 +81,6 @@
                     overflow: hidden;
                     max-height: 37px;
                     line-height: 18px;
-                    @media (max-width: $media1340){
-                        min-width: 170px;
-                    }
                 }
             }
         }
