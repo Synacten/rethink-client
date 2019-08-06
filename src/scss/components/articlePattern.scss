@@ -1,6 +1,26 @@
 .articlePattern{
     display: flex;
     .articleContent{
+        font-family: $ub;
+        .title{
+            text-transform: capitalize;
+            font-weight: bold;
+            font-size: 2em;
+        }
+        .articleImg{
+            width: calc(100% - 20px);
+            margin: 20px 0;
+            img{
+                width: 100%;
+            }
+        }
+        .content{
+            width: calc(100% - 20px);
+            line-height: 20px;
+        }
 
+        .publishData{
+            margin: 20px 0;
+        }
     }
 }

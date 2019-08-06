@@ -3,6 +3,8 @@ import {
   GETARTCILES,
   ISLOADING,
   GETONEARTICLE,
+  ADDCRUMBS,
+  REMOVECRUMBS,
 } from '../actions/types';
 
 const initialState = {
@@ -10,6 +12,7 @@ const initialState = {
   articles: [],
   currentArticle: [],
   isLoading: false,
+  showCrumbs: false,
 };
 
 export default function (state = initialState, action) {
@@ -29,14 +32,22 @@ export default function (state = initialState, action) {
         ...state,
         currentArticle: action.payload,
       };
+    case ADDCRUMBS:
+      return {
+        ...state,
+      };
+    case REMOVECRUMBS: {
+      return {
+        ...state,
+        showCrumbs: !state.showCrumbs,
+      };
+    }
     case ISLOADING:
       return {
         ...state,
         isLoading: !state.isLoading,
       };
     default:
-      return {
-        ...state,
-      };
+      return state;
   }
 }

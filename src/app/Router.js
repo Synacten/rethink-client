@@ -11,50 +11,26 @@ import Crumbs from './components/Crumbs';
 import ArticlePattern from './pages/ArticlePattern';
 import { Notfound } from './pages/Notfound';
 
-const Router = () => {
-  const fakeArr = [
-    {
-      id: 1,
-      heading: 'Blog',
-      link: '/',
-    },
-    {
-      id: 2,
-      heading: 'Business',
-      link: '/',
-    },
-    {
-      id: 3,
-      heading: 'Technology',
-      link: '/',
-    },
-    {
-      id: 4,
-      heading: 'Management',
-      link: '/',
-    },
-  ];
-  return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <div className="wrapper">
-          <Navbar />
-          <div className="indexWrap">
-            <div className="indexContent">
-              <Crumbs crumb={fakeArr} />
-              <Switch>
-                <Route path="/" exact component={Index} />
-                <Route path="/:link" component={ArticlePattern} />
-                <Route component={Notfound} />
-              </Switch>
-            </div>
-            <Diff />
+const Router = () => (
+  <Provider store={store}>
+    <BrowserRouter>
+      <div className="wrapper">
+        <Navbar />
+        <div className="indexWrap">
+          <div className="indexContent">
+            <Crumbs />
+            <Switch>
+              <Route path="/" exact component={Index} />
+              <Route path="/:link" component={ArticlePattern} />
+              <Route component={Notfound} />
+            </Switch>
           </div>
-          <Footer />
+          <Diff />
         </div>
-      </BrowserRouter>
-    </Provider>
-  );
-};
+        <Footer />
+      </div>
+    </BrowserRouter>
+  </Provider>
+);
 
 ReactDOM.render(<Router />, document.querySelector('.root'));

@@ -3,6 +3,8 @@ import {
   GETARTCILES,
   ISLOADING,
   GETONEARTICLE,
+  ADDCRUMBS,
+  REMOVECRUMBS,
 } from './types';
 
 export const getInitial = () => async (dispatch) => {
@@ -41,7 +43,6 @@ export const getOneArticle = ({ link }) => async (dispatch) => {
   const data = await fetch(`http://localhost:2700/article/${link}`);
   if (data.status === 200) {
     const json = await data.json();
-    console.log(json);
     dispatch({
       type: GETONEARTICLE,
       payload: json,
@@ -52,6 +53,25 @@ export const getOneArticle = ({ link }) => async (dispatch) => {
       payload: [],
     });
   }
+};
+
+
+export const addCrumbs = ({ id, category }) => async (dispatch) => {
+  console.log(category);
+  try {
+    dispatch({
+      type: ADDCRUMBS,
+      payload: (function current() { return { id, heading: category }; }()),
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const removeCrumbs = () => (dispatch) => {
+  dispatch({
+    type: REMOVECRUMBS,
+  });
 };
 
 
