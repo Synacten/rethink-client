@@ -8,6 +8,7 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import { Diff } from './components/Diff';
 import Crumbs from './components/Crumbs';
+import Categories from './pages/Categories';
 import ArticlePattern from './pages/ArticlePattern';
 import { Notfound } from './pages/Notfound';
 
@@ -22,6 +23,7 @@ const Router = () => (
             <Switch>
               <Route path="/" exact component={Index} />
               <Route path="/article/:link" component={ArticlePattern} />
+              <Route path="/:category" component={Categories} />
               <Route component={Notfound} />
             </Switch>
           </div>

@@ -5,12 +5,14 @@ import {
   GETONEARTICLE,
   ADDCRUMBS,
   SHOWCRUMBS,
+  ARTICLEBYCATEGORY,
 } from '../actions/types';
 
 const initialState = {
   dataInit: [],
   articles: [],
   currentArticle: [],
+  articlesByCategory: [],
   isLoading: false,
   showCrumbs: false,
 };
@@ -31,6 +33,12 @@ export default function (state = initialState, action) {
       return {
         ...state,
         currentArticle: action.payload,
+      };
+    case ARTICLEBYCATEGORY:
+      return {
+        ...state,
+        articlesByCategory: action.payload,
+
       };
     case ADDCRUMBS:
       return {

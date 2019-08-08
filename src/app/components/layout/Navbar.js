@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
-  getInitial, getArticles, showCrumbs,
+  getInitial,
+  getArticles,
+  showCrumbs,
+  getArticleByCategories,
 } from '../../actions/mainActions';
 
 const Navbar = ({
@@ -11,6 +14,7 @@ const Navbar = ({
   getInitial: _getInitial,
   getArticles: _getArticles,
   showCrumbs: _showCrumbs,
+  getArticleByCategories: _getArticleByCategories,
 }) => {
   useEffect(() => {
     window.addEventListener('load', () => {
@@ -33,7 +37,7 @@ const Navbar = ({
           <div className="links">
             <ul>
               {Object.keys(dataInit).length ? dataInit.map(item => (
-                <li key={item.id}><Link to={`/${item.category_name}`}>{item.category_name}</Link></li>
+                <li key={item.id}><Link to={`/${item.category_name}`} onClick={() => _getArticleByCategories(item.category_name)}>{item.category_name}</Link></li>
               )) : null}
             </ul>
           </div>
@@ -55,6 +59,7 @@ Navbar.propTypes = {
   getInitial: PropTypes.func.isRequired,
   getArticles: PropTypes.func.isRequired,
   showCrumbs: PropTypes.func.isRequired,
+  getArticleByCategories: PropTypes.func.isRequired,
 };
 
 
@@ -63,4 +68,9 @@ const mapDispatchToProps = state => ({
 });
 
 
-export default connect(mapDispatchToProps, { getInitial, getArticles, showCrumbs })(Navbar);
+export default connect(mapDispatchToProps, {
+  getInitial,
+  getArticles,
+  showCrumbs,
+  getArticleByCategories,
+})(Navbar);
