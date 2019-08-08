@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { dataLoad } from '../../actions/mainActions';
+import { Link } from 'react-router-dom';
+import {
+  dataLoad, getOneArticle, addCrumbs, showCrumbs,
+} from '../../actions/mainActions';
 
-const Search = ({ isLoading, dataLoad: _dataLoad }) => {
+const Search = ({
+  isLoading,
+  dataLoad: _dataLoad,
+  getOneArticle: _getOneArticle,
+  addCrumbs: _addCrumbs,
+  showCrumbs,
+}) => {
   const [searchParams, setParams] = useState('');
   const [searchResult, setResults] = useState([]);
   const handleParams = async (e) => {
@@ -40,17 +49,36 @@ const Search = ({ isLoading, dataLoad: _dataLoad }) => {
   const clearParams = () => {
     setResults([]);
   };
+
+  const getCrumbs = (link, id, category) => {
+    Promise.all([
+      _getOneArticle({ link }),
+      _addCrumbs(id, category),
+      showCrumbs(true),
+      setResults([]),
+    ]);
+  };
+
   return (
     <div className="searchWrap">
       <label htmlFor="search">
-        <input type="text" name="searchparams" placeholder="search" value={searchParams} onChange={handleParams} onClick={handleParams} onBlur={clearParams} />
+        <input
+          type="text"
+          name="searchparams"
+          placeholder="search"
+          value={searchParams}
+          onChange={handleParams}
+          onClick={handleParams}
+          onMouseOver={clearParams}
+          onFocus={handleParams}
+        />
         <i className="fas fa-search" />
       </label>
       {isLoading ? <div className="spinner" /> : null}
       <div className="searchResults">
         {Object.keys(searchResult).length ? (
           searchResult.map(item => (
-            <div className="tag" key={item.id}>
+            <Link className="tag" key={item.id} to={`/${item.link}`} onClick={() => getCrumbs(item.link, item.id, item.category)} role="presentation">
               <div className="imgBlock">
                 <img src="https://kor.ill.in.ua/m/190x120/2372562.jpg" alt="" />
               </div>
@@ -58,7 +86,7 @@ const Search = ({ isLoading, dataLoad: _dataLoad }) => {
                 <p>{item.title}</p>
                 <span>{item.description}</span>
               </div>
-            </div>
+            </Link>
           ))
         ) : null}
       </div>
@@ -69,10 +97,15 @@ const Search = ({ isLoading, dataLoad: _dataLoad }) => {
 Search.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   dataLoad: PropTypes.func.isRequired,
+  getOneArticle: PropTypes.func.isRequired,
+  addCrumbs: PropTypes.func.isRequired,
+  showCrumbs: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = state => ({
   isLoading: state.monitor.isLoading,
 });
 
-export default connect(mapDispatchToProps, { dataLoad })(Search);
+export default connect(mapDispatchToProps, {
+  dataLoad, getOneArticle, addCrumbs, showCrumbs,
+})(Search);

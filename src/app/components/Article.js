@@ -1,17 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addCrumbs, removeCrumbs } from '../actions/mainActions';
+import { addCrumbs, showCrumbs } from '../actions/mainActions';
 
-const Article = ({ articles, addCrumbs: _addCrumbs, removeCrumbs: _removeCrumbs }) => {
-  useEffect(() => {
-
-  }, []);
-
+const Article = ({ articles, addCrumbs: _addCrumbs, showCrumbs: _showCrumbs }) => {
   const crumbsView = (current) => {
     _addCrumbs(current);
-    _removeCrumbs();
+    _showCrumbs(true);
   };
   return (
     <div className="selfArticle">
@@ -19,7 +15,7 @@ const Article = ({ articles, addCrumbs: _addCrumbs, removeCrumbs: _removeCrumbs 
         articles.map(item => (
           <div className="articleWrap" key={item.id}>
             <div className="image">
-              <img src="" alt="" />
+              <img src="https://rexona.football.ua/img/field.png" alt="" />
             </div>
             <div className="descript">
               <h2>{item.title}</h2>
@@ -48,11 +44,11 @@ const Article = ({ articles, addCrumbs: _addCrumbs, removeCrumbs: _removeCrumbs 
 Article.propTypes = {
   articles: PropTypes.arrayOf(PropTypes.object, PropTypes.string).isRequired,
   addCrumbs: PropTypes.func.isRequired,
-  removeCrumbs: PropTypes.func.isRequired,
+  showCrumbs: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = state => ({
   articles: state.monitor.articles,
 });
 
-export default connect(mapDispatchToProps, { addCrumbs, removeCrumbs })(Article);
+export default connect(mapDispatchToProps, { addCrumbs, showCrumbs })(Article);

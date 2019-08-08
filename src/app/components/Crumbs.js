@@ -5,15 +5,16 @@ import { connect } from 'react-redux';
 
 
 const Crumbs = ({ currentArticle, showCrumbs }) => (
+  <div className="crumbsWrap">{
   showCrumbs ? (
-    <div className="crumbsWrap">
-      <ul>
-        {Object.keys(currentArticle).length ? (
-          currentArticle.map((item, i) => (<li key={item.id}><Link style={i === currentArticle.length - 1 ? { color: 'black' } : null} to="/">{item.category}</Link></li>))
-        ) : null}
-      </ul>
-    </div>
+    <ul>
+      {Object.keys(currentArticle).length ? (
+        currentArticle.map((item, i) => (<li key={item.id}><Link style={i === currentArticle.length - 1 ? { color: 'black' } : null} to="/">{item.category}</Link></li>))
+      ) : null}
+    </ul>
   ) : null
+      }
+  </div>
 
 );
 

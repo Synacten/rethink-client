@@ -2,23 +2,33 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getInitial, getArticles, removeCrumbs } from '../../actions/mainActions';
+import {
+  getInitial, getArticles, showCrumbs,
+} from '../../actions/mainActions';
 
 const Navbar = ({
   dataInit,
   getInitial: _getInitial,
   getArticles: _getArticles,
-  removeCrumbs: _removeCrumbs,
+  showCrumbs: _showCrumbs,
 }) => {
   useEffect(() => {
-    window.addEventListener('load', () => { _getInitial(); _getArticles(); }, []);
+    window.addEventListener('load', () => {
+      _getInitial();
+      _getArticles();
+      if (window.location.href === '/') {
+        _showCrumbs(false);
+      } else {
+        _showCrumbs(true);
+      }
+    }, []);
   });
   return (
     <div className="navBar">
       <div className="flexNav">
         <div className="flLogoLink">
           <div className="logo">
-            <Link to="/" onClick={() => _removeCrumbs()}><h1>Logo</h1></Link>
+            <Link to="/" onClick={() => _showCrumbs(false)}><h1>Logo</h1></Link>
           </div>
           <div className="links">
             <ul>
@@ -44,7 +54,7 @@ Navbar.propTypes = {
   dataInit: PropTypes.arrayOf(PropTypes.object, PropTypes.string).isRequired,
   getInitial: PropTypes.func.isRequired,
   getArticles: PropTypes.func.isRequired,
-  removeCrumbs: PropTypes.func.isRequired,
+  showCrumbs: PropTypes.func.isRequired,
 };
 
 
@@ -53,4 +63,4 @@ const mapDispatchToProps = state => ({
 });
 
 
-export default connect(mapDispatchToProps, { getInitial, getArticles, removeCrumbs })(Navbar);
+export default connect(mapDispatchToProps, { getInitial, getArticles, showCrumbs })(Navbar);

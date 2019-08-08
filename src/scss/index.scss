@@ -50,6 +50,9 @@
                         margin: 10px 0;
                         font-weight: bold;
                         letter-spacing: 1px;
+                        &::first-letter{
+                            text-transform: uppercase;
+                        }
                     }
                     .misk{
                         display: flex;
@@ -61,7 +64,9 @@
                             width: 150px;
                         }
                         span{
-                            text-transform: capitalize;
+                            &::first-letter{
+                                text-transform: uppercase;
+                            }
                         }
                     }
                     h5{

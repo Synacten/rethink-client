@@ -4,7 +4,7 @@ import {
   ISLOADING,
   GETONEARTICLE,
   ADDCRUMBS,
-  REMOVECRUMBS,
+  SHOWCRUMBS,
 } from './types';
 
 export const getInitial = () => async (dispatch) => {
@@ -57,20 +57,16 @@ export const getOneArticle = ({ link }) => async (dispatch) => {
 
 
 export const addCrumbs = ({ id, category }) => async (dispatch) => {
-  console.log(category);
-  try {
-    dispatch({
-      type: ADDCRUMBS,
-      payload: (function current() { return { id, heading: category }; }()),
-    });
-  } catch (e) {
-    console.log(e);
-  }
+  dispatch({
+    type: ADDCRUMBS,
+    payload: (function current() { return { id, heading: category }; }()),
+  });
 };
 
-export const removeCrumbs = () => (dispatch) => {
+export const showCrumbs = status => (dispatch) => {
   dispatch({
-    type: REMOVECRUMBS,
+    type: SHOWCRUMBS,
+    payload: status,
   });
 };
 

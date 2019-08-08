@@ -3,4 +3,4 @@ export const GETARTCILES = 'GETARTICLES';
 export const ISLOADING = 'ISLOADING';
 export const GETONEARTICLE = 'GETONEARTICLE';
 export const ADDCRUMBS = 'ADDCRUMBS';
-export const REMOVECRUMBS = 'REMOVECRUMBS';
+export const SHOWCRUMBS = 'SHOWCRUMBS';

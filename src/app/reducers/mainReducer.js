@@ -4,7 +4,7 @@ import {
   ISLOADING,
   GETONEARTICLE,
   ADDCRUMBS,
-  REMOVECRUMBS,
+  SHOWCRUMBS,
 } from '../actions/types';
 
 const initialState = {
@@ -36,10 +36,10 @@ export default function (state = initialState, action) {
       return {
         ...state,
       };
-    case REMOVECRUMBS: {
+    case SHOWCRUMBS: {
       return {
         ...state,
-        showCrumbs: !state.showCrumbs,
+        showCrumbs: action.payload,
       };
     }
     case ISLOADING:
