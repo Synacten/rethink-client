@@ -21,7 +21,7 @@ const Router = () => (
             <Crumbs />
             <Switch>
               <Route path="/" exact component={Index} />
-              <Route path="/:link" component={ArticlePattern} />
+              <Route path="/article/:link" component={ArticlePattern} />
               <Route component={Notfound} />
             </Switch>
           </div>

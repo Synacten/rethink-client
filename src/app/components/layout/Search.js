@@ -11,7 +11,7 @@ const Search = ({
   dataLoad: _dataLoad,
   getOneArticle: _getOneArticle,
   addCrumbs: _addCrumbs,
-  showCrumbs,
+  showCrumbs: _showCrumbs,
 }) => {
   const [searchParams, setParams] = useState('');
   const [searchResult, setResults] = useState([]);
@@ -54,7 +54,7 @@ const Search = ({
     Promise.all([
       _getOneArticle({ link }),
       _addCrumbs(id, category),
-      showCrumbs(true),
+      _showCrumbs(true),
       setResults([]),
     ]);
   };
@@ -78,7 +78,7 @@ const Search = ({
       <div className="searchResults">
         {Object.keys(searchResult).length ? (
           searchResult.map(item => (
-            <Link className="tag" key={item.id} to={`/${item.link}`} onClick={() => getCrumbs(item.link, item.id, item.category)} role="presentation">
+            <Link className="tag" key={item.id} to={`/article/${item.link}`} onClick={() => getCrumbs(item.link, item.id, item.category)} role="presentation">
               <div className="imgBlock">
                 <img src="https://kor.ill.in.ua/m/190x120/2372562.jpg" alt="" />
               </div>

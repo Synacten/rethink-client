@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   devServer: {
@@ -12,7 +13,7 @@ module.exports = {
   },
   entry: './src/index.js',
   output: {
-    filename: 'js/main.js',
+    filename: './js/main.js',
   },
   mode: 'production',
   optimization: {
@@ -125,8 +126,11 @@ module.exports = {
       filename: './index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
+      filename: './css/[name].css',
       chunkFilename: '[id].css',
     }),
+    new CopyPlugin([
+      { from: './.htaccess', to: './' },
+    ]),
   ],
 };

@@ -26,7 +26,7 @@ const Article = ({ articles, addCrumbs: _addCrumbs, showCrumbs: _showCrumbs }) =
               </div>
               <h5>{item.description}</h5>
               <div className="read">
-                <p><Link to={`/${item.link}`} onClick={() => crumbsView(item)}>Read More</Link></p>
+                <p><Link to={`/article/${item.link}`} onClick={() => crumbsView(item)}>Read More</Link></p>
                 <ul>
                   <li><i className="fab fa-facebook-square" /></li>
                   <li><i className="fab fa-twitter" /></li>
