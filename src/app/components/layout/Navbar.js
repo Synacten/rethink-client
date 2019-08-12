@@ -37,7 +37,7 @@ const Navbar = ({
           <div className="links">
             <ul>
               {Object.keys(dataInit).length ? dataInit.map(item => (
-                <li key={item.id}><Link to={`/${item.category_name}`} onClick={() => _getArticleByCategories(item.category_name)}>{item.category_name}</Link></li>
+                <li key={item.id}><Link to={`/category/${item.category_name}`} onClick={() => _getArticleByCategories(item.category_name)}>{item.category_name}</Link></li>
               )) : null}
             </ul>
           </div>

@@ -23,7 +23,7 @@ const Router = () => (
             <Switch>
               <Route path="/" exact component={Index} />
               <Route path="/article/:link" component={ArticlePattern} />
-              <Route path="/:category" component={Categories} />
+              <Route path="/category/:category" component={Categories} />
               <Route component={Notfound} />
             </Switch>
           </div>
