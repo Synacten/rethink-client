@@ -73,6 +73,9 @@
                     transition: all .3s;
                     font-size: .9em;
                     line-height: 18px;
+                    &::first-letter{
+                        text-transform: uppercase;
+                    }
                 }
                 span{
                     font-size: .8em;

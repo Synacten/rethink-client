@@ -4,6 +4,9 @@
     margin: 0 auto;
     position: relative;
     display: flex;
+    @media (max-width: $media1340) {
+        width: calc(100% - 20px);
+    }
     @media (max-width: $media875) {
         flex-direction: column;
         align-items: center;
@@ -13,34 +16,34 @@
         flex-direction: column;
         width: calc(100% - 320px);
         @media (max-width: $media875) {
-            width: calc(100% - 20px);
+            width: 100%;
         }
     }
     .contentWrap{
-        display: flex;
-        width: 100%;
-        @media (max-width: $media767) {
-            flex-direction: column;
+        width: calc(100% - 20px);
+        @media (max-width: $media920) {
+            width: 100%;
         }
         .selfArticle{
-            max-width: 980px;
             width: 100%;
+            justify-content: space-between;
+            display: flex;
+            flex-wrap: wrap;
             position: relative;
             font-family: $ub;
-            @media (max-width: $media1340) {
-                padding-right: 15px;
-            }
             @media (max-width: $media767) {
                 padding: 0;
             }
             .articleWrap{
-                padding-right: 20px;
-                @media (max-width: $media1340) {
-                    padding: 0;
+                width: calc(50% - 10px);
+                @media (max-width: $media920) {
+                    width: calc(100% - 20px);
+                }
+                @media (max-width: $media875) {
+                    width: 100%;
                 }
                 .image{
                     img{
-                        max-width: 950px;
                         width: 100%;
                     }
                 }

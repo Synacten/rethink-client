@@ -24,7 +24,7 @@ const Article = ({ articles, addCrumbs: _addCrumbs, showCrumbs: _showCrumbs }) =
                 <p>0 comment</p>
                 <span>{item.category}</span>
               </div>
-              <h5>{item.description}</h5>
+              <h5>{item.description.split('.')[0].concat('...')}</h5>
               <div className="read">
                 <p><Link to={`/article/${item.link}`} onClick={() => crumbsView(item)}>Read More</Link></p>
                 <ul>
