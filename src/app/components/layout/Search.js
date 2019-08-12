@@ -3,15 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
-  dataLoad, getOneArticle, addCrumbs, showCrumbs,
+  dataLoad, getOneArticle,
 } from '../../actions/mainActions';
 
 const Search = ({
   isLoading,
   dataLoad: _dataLoad,
   getOneArticle: _getOneArticle,
-  addCrumbs: _addCrumbs,
-  showCrumbs: _showCrumbs,
 }) => {
   const [searchParams, setParams] = useState('');
   const [searchResult, setResults] = useState([]);
@@ -50,15 +48,6 @@ const Search = ({
     setResults([]);
   };
 
-  const getCrumbs = (link, id, category) => {
-    Promise.all([
-      _getOneArticle({ link }),
-      _addCrumbs(id, category),
-      _showCrumbs(true),
-      setResults([]),
-    ]);
-  };
-
   return (
     <div className="searchWrap">
       <label htmlFor="search">
@@ -78,7 +67,7 @@ const Search = ({
       <div className="searchResults">
         {Object.keys(searchResult).length ? (
           searchResult.map(item => (
-            <Link className="tag" key={item.id} to={`/article/${item.link}`} onClick={() => getCrumbs(item.link, item.id, item.category)} role="presentation">
+            <Link className="tag" key={item.id} to={`/article/${item.link}`} onClick={() => _getOneArticle(item)} role="presentation">
               <div className="imgBlock">
                 <img src="https://kor.ill.in.ua/m/190x120/2372562.jpg" alt="" />
               </div>
@@ -98,8 +87,6 @@ Search.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   dataLoad: PropTypes.func.isRequired,
   getOneArticle: PropTypes.func.isRequired,
-  addCrumbs: PropTypes.func.isRequired,
-  showCrumbs: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = state => ({
@@ -107,5 +94,5 @@ const mapDispatchToProps = state => ({
 });
 
 export default connect(mapDispatchToProps, {
-  dataLoad, getOneArticle, addCrumbs, showCrumbs,
+  dataLoad, getOneArticle,
 })(Search);

@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import {
   getInitial,
   getArticles,
-  showCrumbs,
   getArticleByCategories,
 } from '../../actions/mainActions';
 
@@ -13,18 +12,14 @@ const Navbar = ({
   dataInit,
   getInitial: _getInitial,
   getArticles: _getArticles,
-  showCrumbs: _showCrumbs,
   getArticleByCategories: _getArticleByCategories,
 }) => {
   useEffect(() => {
     window.addEventListener('load', () => {
       _getInitial();
       _getArticles();
-      if (window.location.href === '/') {
-        _showCrumbs(false);
-      } else {
-        _showCrumbs(true);
-      }
+      const getCategory = window.location.pathname.split('/category/')[1];
+      _getArticleByCategories(getCategory);
     }, []);
   });
   return (
@@ -32,7 +27,7 @@ const Navbar = ({
       <div className="flexNav">
         <div className="flLogoLink">
           <div className="logo">
-            <Link to="/" onClick={() => _showCrumbs(false)}><h1>Logo</h1></Link>
+            <Link to="/"><h1>Logo</h1></Link>
           </div>
           <div className="links">
             <ul>
@@ -58,7 +53,6 @@ Navbar.propTypes = {
   dataInit: PropTypes.arrayOf(PropTypes.object, PropTypes.string).isRequired,
   getInitial: PropTypes.func.isRequired,
   getArticles: PropTypes.func.isRequired,
-  showCrumbs: PropTypes.func.isRequired,
   getArticleByCategories: PropTypes.func.isRequired,
 };
 
@@ -71,6 +65,5 @@ const mapDispatchToProps = state => ({
 export default connect(mapDispatchToProps, {
   getInitial,
   getArticles,
-  showCrumbs,
   getArticleByCategories,
 })(Navbar);
