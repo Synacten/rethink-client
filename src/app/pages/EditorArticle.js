@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 import { Editor } from 'react-draft-wysiwyg';
 import { EditorState } from 'draft-js';
 import { stateToHTML } from 'draft-js-export-html';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
-const EditorArticle = () => {
+const EditorArticle = ({ dataInit }) => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
+  const [title, setTitle] = useState('');
+  const [artAttr, setArtAttr] = useState('');
 
   const onEditorStateChange = (newEditorState) => {
     setEditorState(newEditorState);
@@ -13,9 +17,45 @@ const EditorArticle = () => {
 
   const submitArticle = async () => {
     console.log(stateToHTML(editorState.getCurrentContent()));
+    if (title === '' || artAttr === '') {
+      return 0;
+    }
+    const sendData = await fetch('http://localhost:2700/addarticle', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        title,
+        description: stateToHTML(editorState.getCurrentContent()),
+        category: artAttr,
+      }),
+    });
+    const json = sendData.json();
+    console.log(json);
+  };
+
+  const handleTitle = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const setCategory = (e) => {
+    setArtAttr(e.target.value);
   };
   return (
     <div className="editorWrap">
+      <div className="articleAtributes">
+        <input type="text" name="title" value={title} onChange={handleTitle} />
+        {Object.keys(dataInit).length ? (
+          <select name="category" onChange={setCategory}>
+            <option disabled defaultValue>Choose category</option>
+            {dataInit.map(item => (
+              <option value={item.category_name} key={item.id}>{item.category_name}</option>
+            ))}
+          </select>
+        ) : null}
+
+      </div>
       <Editor
         editorState={editorState}
         toolbarClassName="toolbarClassName"
@@ -29,4 +69,12 @@ const EditorArticle = () => {
   );
 };
 
-export default EditorArticle;
+EditorArticle.propTypes = {
+  dataInit: PropTypes.arrayOf(PropTypes.object, PropTypes.string).isRequired,
+};
+
+const mapDispatchToProps = state => ({
+  dataInit: state.monitor.dataInit,
+});
+
+export default connect(mapDispatchToProps)(EditorArticle);

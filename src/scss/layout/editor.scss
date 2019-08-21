@@ -4,4 +4,26 @@
         padding: 0 20px;
         border: 1px solid rgb(230, 230, 230);
     }
+    .articleAtributes{
+        display: flex;
+        justify-content: space-around;
+        height: 50px;
+        align-items: flex-start;
+        input[name='title']{
+            width: 80%;
+            border: 1px solid rgb(231, 231, 231);
+            height: 30px;
+            padding: 0 10px;
+            font-size: 1.2em;
+        }
+        select{
+            width: 20%;
+            height: 30px;
+            border: none;
+            background-color: #fff;
+            border-top: 1px solid rgb(233, 233, 233);
+            border-bottom: 1px solid rgb(233, 233, 233);
+            text-transform: uppercase;
+        }
+    }
 }
