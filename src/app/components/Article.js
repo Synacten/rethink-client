@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import parse from 'html-react-parser';
 import { getArticleByCategories } from '../actions/mainActions';
+
 
 const Article = ({ articles, getArticleByCategories: _getArticleByCategories }) => (
   <div className="selfArticle">
@@ -19,7 +21,7 @@ const Article = ({ articles, getArticleByCategories: _getArticleByCategories }) 
               <p>0 comment</p>
               <span><Link to={`/category/${item.category}`} onClick={() => _getArticleByCategories(item.category)}>{item.category}</Link></span>
             </div>
-            <h5>{item.description.split('.')[0].concat('...')}</h5>
+            <h5>{parse(item.description.split('.')[0].concat('...'))}</h5>
             <div className="read">
               <p><Link to={`/article/${item.link}`}>Read More</Link></p>
               <ul>

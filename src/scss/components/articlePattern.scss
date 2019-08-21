@@ -17,6 +17,24 @@
         .content{
             width: calc(100% - 20px);
             line-height: 20px;
+            text-align: justify;
+            h2{
+                font-size: 1.5em;
+                font-weight: bold;
+                padding-bottom: 25px;
+            }
+            h3{
+                font-size: 1.3em;
+                font-weight: bold;
+                padding-bottom: 25px;
+            }
+            p{
+                display: block;
+                padding-bottom: 15px;
+                strong{
+                    font-weight: bold;
+                }
+            }
         }
 
         .publishData{

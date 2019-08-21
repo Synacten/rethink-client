@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import parse from 'html-react-parser';
 import { getOneArticle } from '../actions/mainActions';
 
 const ArticlePattern = ({ match: { params }, getOneArticle: _getOneArticle, currentArticle }) => {
@@ -16,7 +17,7 @@ const ArticlePattern = ({ match: { params }, getOneArticle: _getOneArticle, curr
             <div className="articleImg">
               <img src="https://rexona.football.ua/img/field.png" alt="" />
             </div>
-            <div className="content">{item.description}</div>
+            <div className="content">{parse(item.description)}</div>
             <div className="publishData">{item.created_at.split('T')[0]}</div>
           </div>
         ))

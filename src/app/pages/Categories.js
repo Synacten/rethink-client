@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import parse from 'html-react-parser';
 
 
 const Categories = ({ articlesByCategory }) => (
@@ -14,7 +15,7 @@ const Categories = ({ articlesByCategory }) => (
           </div>
           <div className="content">
             <h3>{item.title}</h3>
-            <span>{item.description.split('.')[0]}</span>
+            <span>{(parse(item.description.split('.')[0]))}</span>
             <p>{item.created_at.split('T')[0]}</p>
           </div>
         </Link>
