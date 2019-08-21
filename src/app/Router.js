@@ -11,6 +11,7 @@ import Crumbs from './components/Crumbs';
 import Categories from './pages/Categories';
 import ArticlePattern from './pages/ArticlePattern';
 import { Notfound } from './pages/Notfound';
+import EditorArticle from './pages/EditorArticle';
 
 const Router = () => (
   <Provider store={store}>
@@ -24,6 +25,7 @@ const Router = () => (
               <Route path="/" exact component={Index} />
               <Route path="/article/:link" component={ArticlePattern} />
               <Route path="/category/:category" component={Categories} />
+              <Route path="/edit" component={EditorArticle} />
               <Route component={Notfound} />
             </Switch>
           </div>
