@@ -42,6 +42,10 @@ const EditorArticle = ({ dataInit }) => {
   const setCategory = (e) => {
     setArtAttr(e.target.value);
   };
+
+  const openPreview = () => {
+    console.log('get preview of current article');
+  };
   return (
     <div className="editorWrap">
       <div className="articleAtributes">
@@ -63,7 +67,11 @@ const EditorArticle = ({ dataInit }) => {
         onEditorStateChange={onEditorStateChange}
         placeholder="Write anything..."
       />
-      <input type="submit" value="addarticle" onClick={submitArticle} />
+      <div className="submitParams">
+        <input type="submit" value="Preview article" title="Preview article" onClick={openPreview} />
+        <input type="submit" value="Push article" title="Publish this article" onClick={submitArticle} />
+      </div>
+
     </div>
   );
 };

@@ -26,4 +26,17 @@
             text-transform: uppercase;
         }
     }
+    .submitParams{
+        display: flex;
+        height: 50px;
+        align-items: center;
+        justify-content: space-around;
+        input{
+            border: none;
+            width: 150px;
+            height: 30px;
+            background-color: rgb(238, 238, 238);
+            cursor: pointer;
+        }
+    }
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import parse from 'html-react-parser';
 import {
   dataLoad, getOneArticle,
 } from '../../actions/mainActions';
@@ -45,7 +46,7 @@ const Search = ({
   };
 
   const clearParams = () => {
-    setResults([]);
+    setTimeout(() => setResults([]), 200);
   };
 
   return (
@@ -58,7 +59,7 @@ const Search = ({
           value={searchParams}
           onChange={handleParams}
           onClick={handleParams}
-          onMouseOver={clearParams}
+          onBlur={clearParams}
           onFocus={handleParams}
         />
         <i className="fas fa-search" />
@@ -73,7 +74,7 @@ const Search = ({
               </div>
               <div className="content">
                 <p>{item.title}</p>
-                <span>{item.description}</span>
+                <span>{parse(item.description)}</span>
               </div>
             </Link>
           ))
