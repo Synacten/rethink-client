@@ -31,8 +31,8 @@ const EditorArticle = ({ dataInit }) => {
         category: artAttr,
       }),
     });
-    const json = await sendData.json();
-    console.log(json);
+    await sendData.json();
+    return 1;
   };
 
   const handleTitle = (e) => {
@@ -51,8 +51,8 @@ const EditorArticle = ({ dataInit }) => {
       <div className="articleAtributes">
         <input type="text" name="title" value={title} onChange={handleTitle} />
         {Object.keys(dataInit).length ? (
-          <select name="category" onChange={setCategory}>
-            <option selected disabled>Choose category</option>
+          <select name="category" defaultValue="default" onChange={setCategory}>
+            <option value="default">Choose category</option>
             {dataInit.map(item => (
               <option value={item.category_name} key={item.id}>{item.category_name}</option>
             ))}
