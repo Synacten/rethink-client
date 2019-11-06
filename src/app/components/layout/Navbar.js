@@ -44,6 +44,9 @@ const Navbar = ({
           <div className="phone"><i className="fas fa-phone" /> 8 (800) 800 000</div>
           <div className="callOrder">Order service</div>
         </div>
+        <div className="user-interface">
+          <div className="login">Sing in</div>
+        </div>
       </div>
     </div>
   );

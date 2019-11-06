@@ -10,7 +10,6 @@ const EditorArticle = ({ dataInit }) => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const [title, setTitle] = useState('');
   const [artAttr, setArtAttr] = useState('');
-
   const onEditorStateChange = (newEditorState) => {
     setEditorState(newEditorState);
   };
@@ -71,7 +70,6 @@ const EditorArticle = ({ dataInit }) => {
         <input type="submit" value="Preview article" title="Preview article" onClick={openPreview} />
         <input type="submit" value="Push article" title="Publish this article" onClick={submitArticle} />
       </div>
-
     </div>
   );
 };

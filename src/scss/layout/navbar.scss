@@ -74,6 +74,17 @@
                 }
             }
         }
+        .user-interface{
+            display: flex;
+            align-items: center;
+            font-family: $ub;
+            .login{
+                border: 1px solid gainsboro;
+                padding: 3px 4px;
+                border-radius: 3px;
+                cursor: pointer;
+            }
+        }
         .orderPhone{
             // background-color: rgba(218, 151, 151, 0.719);
             display: flex;
